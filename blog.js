@@ -8,3 +8,23 @@ obj.open('GET',url,false);obj.send();},cacheXml:function(uri,fnc){if(uri in ajax
 // update 20140101 added failsafe callback functions to AJAX. You can now use "ajax.get('http://www.example.com');" without callback function, useful for preloading.
 
 // update 20160615 added ajax.xget, which returns object {'url':url,'responseText':responseText}
+
+
+
+// some constants
+
+window.postsPerPage=12
+window.errorPage="<root><post><header></header>Oops :P<content>An error occured.</content></post></root>"
+
+
+
+
+window.onload=function(){
+	try{
+		ajax.get('posts.xml',function(res){
+			console.log(res);
+		});
+	} catch(e){
+		console.log(window.errorPage);
+	}
+}
