@@ -1,58 +1,6 @@
 //
-// backbone here
+// dependencies start
 //
-
-function Post(xmlData=''){
-	this.addChild=function(obj=""){
-		if (obj!="" && typeof(obj)==="object"){
-			content+="<div class='post post-"+obj.nodeName.toLowerCase()+"'>";
-				if (obj.hasAttribute('raw')) {
-					content += "<!-- raw -->" + obj.innerHTML;
-				}
-				else {
-					if (! (obj.nodeName in lib)){
-						content += "<!-- failed to parse <"+obj.nodeName+"> -->" + obj.innerHTML;
-					}
-					else {
-						content += lib[obj.nodeName].start + obj.innerHTML + lib[obj.nodeName].stop
-					}
-				}
-			content+="</div>";
-		}
-	}
-
-	this.print=function(){
-		return "<div class='post post-container'>" + content + "</div>";
-	}
-
-	//
-	// init
-	//
-	content=""
-	lib={
-		header:{
-			start:"<h1>",
-			stop:"</h1>"
-		},
-		content:{
-			start:"<p>",
-			stop:"</p>"
-		}
-	}
-
-	if (xmlData!='' && typeof(xmlData)==="object") {
-		for(a=0;a<xmlData.getElementsByTagName('*').length;a++){
-			this.addChild(xmlData.getElementsByTagName('*')[a]);
-			//content+="<div class='post post-"+xmlData.getElementsByTagName('*')[a].nodeName.toLowerCase()+"'>";
-			//	content += xmlData.getElementsByTagName('*')[a].innerHTML;
-			//content+="</div>";
-		}
-	}
-}
-
-function Page(pageName){}
-
-
 
 
 
@@ -68,13 +16,8 @@ obj.open('GET',url,false);obj.send();},cacheXml:function(uri,fnc){if(uri in ajax
 // update 20160615 added ajax.xget, which returns object {'url':url,'responseText':responseText}
 
 //
-// end backbone
+// dependencies end
 //
-
-
-
-
-
 
 
 // some constants
